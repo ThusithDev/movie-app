@@ -1,9 +1,10 @@
-package com.thusith.movies
+package com.thusith.movies.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavHostController
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,7 +23,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -36,15 +36,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.thusith.movies.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            IntroScreen(onGetInClick = {})
+            IntroScreen(onGetInClick = {
+                startActivity(Intent(this,LoginActivity::class.java))
+            })
         }
     }
 }
@@ -80,7 +81,7 @@ fun FooterSection(onGetInClick:() ->Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(160.dp)
     ) {
         Image(
             painter = painterResource(id = R.drawable.bg2),
@@ -113,7 +114,7 @@ fun HeaderSection() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(650.dp)
+            .height(600.dp)
     ) {
         Image(painter = painterResource(id = R.drawable.bg1)
         , contentDescription = null,
