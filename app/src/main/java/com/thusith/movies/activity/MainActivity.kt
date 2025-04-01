@@ -130,4 +130,3 @@ fun MainContent(onItemClick: (FilmItemModel) -> Unit) {
     }
 }
 
-
